@@ -1,15 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const uuidv4 = require("uuid/v4");
-var cors = require("cors");
-var fs = require("fs");
+const cors = require("cors");
+const fs = require("fs");
 
 const app = express();
 
 app.use(cors());
 
 app.use(bodyParser.json());
-// in latest body-parser use like below.
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/api/images", (req, res) => {

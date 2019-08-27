@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
-import { async } from "q";
 
 function App() {
   const [uploadSucess, setUploadSucess] = useState("");
@@ -29,19 +28,29 @@ function App() {
     };
     getData();
   }, []);
+
   return (
-    <div>
+    <div className="App">
+      <div>
+        <h1>Life is a Trip</h1>
+      </div>
       <input
+        className="search-bar"
         onChange={e => {
           setInputText(e.target.value);
         }}
         value={inputText}
       />
-      <button onClick={postImage}>Submit</button>
-      <div>{uploadSucess}</div>
-      {inputImages.map(inputImage => {
-        return <img src={inputImage.image} />;
-      })}
+      <button className="submit_button" onClick={postImage}>
+        Submit
+      </button>
+      <button>Delete</button>
+      <div className="image">
+        <div>{uploadSucess}</div>
+        {inputImages.map(inputImage => {
+          return <img className="pic" src={inputImage.image} alt="" />;
+        })}
+      </div>
     </div>
   );
 }
